@@ -1,9 +1,16 @@
 import React,{useState} from 'react'
 import {Form,Button,Card} from 'react-bootstrap';
+import { register } from '../../action/authAction';
+import {setAlert} from '../../action/alertAction';
+import { connect } from 'react-redux';
 
-const CreateAccount = () => {
+
+
+
+const CreateAccount = ({register,setAlert,auth:{isRegistered,loading}}) => {
     const [formData,setFormData] = useState({name:'',email:'',password:'',password2:''});
 
+    const {name,email,password,password2} = formData;
 
     const onChange = (e) =>{
         setFormData({...formData,[e.target.name] : e.target.value})
@@ -13,7 +20,21 @@ const CreateAccount = () => {
 
     const onSubmit = (e) =>{
         e.preventDefault();
+        if(password !== password2 ){
+            setAlert("Your Password is Incorrect","denger");
+        }else if (password.length<6) {
+            setAlert("Enter the more than 6 character","denger");
+        } else {
+            register({name,email,password});
+        }
 
+    }
+    
+     if(isRegistered === 'success'){
+        setAlert("You should verfiy using email","success");
+    }
+    if(isRegistered === 'fail'){
+        setAlert("Your email alredy exist","denger");
     }
     
     return (
@@ -49,7 +70,9 @@ const CreateAccount = () => {
         </div>
     )
 }
+const mapStateToProp = (state) =>({
+    auth: state.auth
+})
 
 
-
-export default CreateAccount;
+export default connect(mapStateToProp,{register,setAlert})(CreateAccount);

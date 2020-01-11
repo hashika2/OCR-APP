@@ -1,7 +1,12 @@
 import React,{useState} from 'react';
+import {Redirect} from 'react-router-dom';
 import {Card,Button,Form} from 'react-bootstrap';
+import { connect } from 'react-redux';
+import {login} from '../../action/authAction';
 
- const Login = () => {
+
+
+ const Login = ({login,auth:{isAuthanticated}}) => {
      const [formData,setFormData] = useState({email:'',password:''})
 
     const onChange = (e) =>{
@@ -12,9 +17,13 @@ import {Card,Button,Form} from 'react-bootstrap';
 
     const onSubmit = (e) =>{
         e.preventDefault();
+        login({email,password})
 
     }
-
+    
+    if(isAuthanticated){
+        return <Redirect to='/imageuploader'/>
+    }
     return (
         
         <div className='card-form'>
@@ -41,5 +50,8 @@ import {Card,Button,Form} from 'react-bootstrap';
             
     )
 }
+const mapStateToProps = (state) =>({
+    auth: state.auth
+});
 
-export default Login;
+export default connect(mapStateToProps,{login})(Login);

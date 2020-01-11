@@ -1,15 +1,20 @@
-import React,{useState} from 'react';
+import React,{useState, Fragment} from 'react';
 import {Card,Form,Button} from 'react-bootstrap';
+import {sendImage} from '../../action/imageAction';
+import {connect} from 'react-redux';
 
-const ImageUpload = () => {
+const ImageUpload = ({sendImage,content:{text,loadingText}}) => {
     const [image,setImage] = useState({file:null});
 
     const onChange = (e) =>{
         setImage({...image,file:e.target.files[0]})
     }
 
+    const {file} = image;
+
     const onSubmit = (e) =>{
         e.preventDefault();
+        sendImage({file});
 
     }
 
@@ -34,8 +39,23 @@ const ImageUpload = () => {
                         </Card>
                 </Card.Body>
             </Card>
+            <div >
+                <Fragment>{loadingText &&  
+                    <Card className='show-text' style={{ width: '40rem' }}>
+                        <Card.Body>
+                            <Card.Title className='text-center'><h1>Image Content</h1></Card.Title>
+                            <Card.Text>{text}</Card.Text>
+                        </Card.Body>
+                    </Card>}
+                </Fragment>
+                
+            </div>
         </div>
     )
 }
 
-export default ImageUpload;
+const mapStateToPorp = (state) =>({
+    content: state.image
+});
+
+export default connect(mapStateToPorp,{sendImage})(ImageUpload);
