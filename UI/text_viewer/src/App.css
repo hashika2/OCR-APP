@@ -1,0 +1,59 @@
+.nav{
+  margin-left: auto;
+}
+.home{
+  width: 500px;
+  height: 200px;
+  padding: 5%;
+  /* margin: 15%; */
+  margin-top: 15%;
+  margin-left: 30%;
+  border: 2px solid black;
+}
+.home-btn{
+  margin: 25px;
+}
+
+.home-back {
+  background: url("./img/showcase.jpg") no-repeat center center/cover;
+  height: 92vh;
+  width: 100%;
+  margin-top: 0;
+  position: absolute;
+ 
+}
+
+.home-card{
+  margin-left: 30%;
+  margin-top: 5%;
+ background-color: rgba(128, 128, 128,0.5);
+ border: 3px solid white;
+}
+
+.card-form{
+  margin-left: 30%;
+  margin-top: 5%;
+}
+
+.alert-denger{
+  background-color: red;
+  color: white;
+  height: 50px;
+  font-size: 30px;
+}
+
+.alert-success{
+  background-color: green;
+  color: white;
+  height: 50px;
+  font-size: 30px;
+}
+
+.upload-image{
+  margin: 10px 250px;
+}
+
+.show-text{
+  margin: 50px 150px;
+  border: 2px solid black;
+}
