@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.project.imageTextViewer.Image.Text.Viewer.ImageTextViewerApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.978 s - in com.project.imageTextViewer.Image.Text.Viewer.ImageTextViewerApplicationTests
