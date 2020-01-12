@@ -1,7 +1,5 @@
 package com.project.imageTextViewer.Image.Text.Viewer.model;
 
-import java.io.File;
-
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

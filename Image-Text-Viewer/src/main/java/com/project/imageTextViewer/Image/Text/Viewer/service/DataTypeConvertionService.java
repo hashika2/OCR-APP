@@ -1,7 +1,6 @@
 package com.project.imageTextViewer.Image.Text.Viewer.service;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.springframework.stereotype.Service;
