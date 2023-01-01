@@ -20,7 +20,7 @@
   "homepage": "https://github.com/anjana6/Image-Text-View-Backend#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "config": "^3.2.4",
+    "config": "^3.3.8",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-fileupload": "^1.1.6",
